@@ -72,9 +72,9 @@ test_db_storage.py'])
 class TestFileStorage(unittest.TestCase):
     """Test the FileStorage class"""
     @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
-    def test_all_returns_dict(self):
-        """Test that all returns a dictionaty"""
-        self.assertIs(type(models.storage.all()), dict)
+    def test_all_returns_dictionaryt(self):
+        """Test that all returns a dictionarytionaty"""
+        self.assertIs(type(models.storage.all()), dictionaryt)
 
     @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
     def test_all_no_class(self):
@@ -90,8 +90,8 @@ class TestFileStorage(unittest.TestCase):
 
     def test_get_db(self):
         """ Tests method for obtaining an instance db storage"""
-        dic = {"name": "Cundinamarca"}
-        instance = State(**dic)
+        dictionary = {"name": "Cundinamarca"}
+        instance = State(**dictionary)
         storage.new(instance)
         storage.save()
         get_instance = storage.get(State, instance.id)
@@ -99,11 +99,11 @@ class TestFileStorage(unittest.TestCase):
 
     def test_count(self):
         """ Tests count method db storage """
-        dic = {"name": "Vecindad"}
-        state = State(**dic)
+        dictionary = {"name": "Vecindad"}
+        state = State(**dictionary)
         storage.new(state)
-        dic = {"name": "Mexico", "state_id": state.id}
-        city = City(**dic)
+        dictionary = {"name": "Mexico", "state_id": state.id}
+        city = City(**dictionary)
         storage.new(city)
         storage.save()
         c = storage.count()
