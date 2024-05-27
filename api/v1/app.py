@@ -16,17 +16,17 @@ cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 
 @app.teardown_appcontext
 def close_db(error):
-    """ Close Storage """
+    """The function to close Storage """
     storage.close()
 
 
 @app.errorhandler(404)
 def not_found(error):
-    """ 404 Error
+    """ Handles 404 Error
     ---
     responses:
       404:
-        description: a resource was not found
+        description: Handles unfound resources
     """
     return make_response(jsonify({'error': "Not found"}), 404)
 
@@ -39,7 +39,7 @@ Swagger(app)
 
 
 if __name__ == "__main__":
-    """ Main Function """
+    """ The main function to return Flask server """
     host = environ.get('HBNB_API_HOST')
     port = environ.get('HBNB_API_PORT')
     if not host:
