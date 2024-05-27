@@ -23,7 +23,7 @@ def get_states():
 @app_views.route('/states/<state_id>', methods=['GET'], strict_slashes=False)
 @swag_from('documentation/state/get_id_state.yml', methods=['get'])
 def get_state(state_id):
-    """ Retrieves a specific State """
+    """ Retrieves a State object """
     state = storage.get(State, state_id)
     if not state:
         abort(404)
@@ -38,7 +38,6 @@ def delete_state(state_id):
     """
     Deletes a State Object
     """
-
     state = storage.get(State, state_id)
 
     if not state:
@@ -72,7 +71,7 @@ def post_state():
 @swag_from('documentation/state/put_state.yml', methods=['PUT'])
 def put_state(state_id):
     """
-    Updates a State
+    Updates a State object
     """
     state = storage.get(State, state_id)
 
